@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import model.Jogador;
 
 public class Controle_jogador extends Control<Jogador, Integer>{
-	
+	// Comandos SQLs que serão disparados
 	protected String getInserirSQL() {
 		return "INSERT into Jogador (ID_Jogador, Nome, Posicao, Idade, Pe_Dominante) "+
 				 "values (default, ?, ?, ?, ?)";
@@ -28,7 +28,7 @@ public class Controle_jogador extends Control<Jogador, Integer>{
 	protected String getObterTodosSQL() {
 		return "select * from jogador";
 	}
-	
+	// Faz a conversao de um resultado para o tipo Jogador
 	protected  Jogador parse(ResultSet resultado) throws SQLException{
 		Jogador jogador = new Jogador();
 		jogador.setId_jogador(resultado.getInt("ID_jogador"));
@@ -38,7 +38,7 @@ public class Controle_jogador extends Control<Jogador, Integer>{
 		jogador.setPe_dominante(resultado.getString("Pe_Dominante"));
 		return jogador;
 	}
-	
+	//Cofiguracoes de parametros
 	@Override
 	protected void configurarParametrosInserir(Jogador model, PreparedStatement stm) throws SQLException{
 		stm.setString(1, model.getNome());
