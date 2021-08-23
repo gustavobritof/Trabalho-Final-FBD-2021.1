@@ -1,6 +1,6 @@
-package futebolistas;
+package model;
 
-public class Tecnico {
+public class Tecnico extends Model{
 	int id_tecnico, idade;
 	String nome, licenca;
 	
@@ -43,4 +43,11 @@ public class Tecnico {
 	public void setLicenca(String licenca) {
 		this.licenca = licenca;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%d\t%s\t%d\t%s", id_tecnico, nome, idade, licenca);
+	}
+	
+	
 }

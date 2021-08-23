@@ -1,4 +1,4 @@
-package futebolistas;
+package model;
 
 public class Clube {
 	int id_clube;

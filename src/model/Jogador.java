@@ -1,6 +1,6 @@
-package futebolistas;
+package model;
 
-public class Jogador {
+public class Jogador extends Model {
 	Integer id_jogador, idade;
 	String nome, posicao, pe_dominante;
 	
@@ -57,9 +57,7 @@ public class Jogador {
 
 	@Override
 	public String toString() {
-		return id_jogador + " - " + idade + " - " + nome + " - " + posicao
-				+ " - " + pe_dominante;
-	}
-	
-	
+		return String.format("%d\t%s\t%d\t%s\t%s", id_jogador, nome, idade, posicao, pe_dominante);
+
+	}	
 }
