@@ -11,13 +11,16 @@ import java.util.Scanner;
 public class Main2 {
 	
 	public static void Menu() {
-		System.out.println("Digite uma opÁ„o:\n"
+		
+		System.out.println("========================================================\n"
+						+ "Digite uma op√ß√£o:\n"
 						+ "1 = adicionar jogador (Nome/Idade/Posicao/Pe Dominante) \n"
 						+ "2 = remover jogador(Id Jogador)\n"
 						+ "3 = alterar jogador (Nome/Idade/Posicao/Pe Dominante) \n"
 						+ "4 = buscar jogador(Id Jogador)\n"
 						+ "5 = mostrar jogadores\n"
-						+ "0 = Para sair do programa \n");
+						+ "0 = Para sair do programa \n"
+						+ "========================================================\n");
 	}
 
 	public static void main(String[] args) {
@@ -32,6 +35,7 @@ public class Main2 {
 			opx = ler.next();
 			switch(opx) {
 			case "1":
+				System.out.println("\n->Inserir Jogador: \n");
 				ler.nextLine();
 				System.out.println("Digite o nome do jogador: ");
 				String nome = ler.nextLine();
@@ -49,6 +53,8 @@ public class Main2 {
 				}else {
 					System.out.println("Erro!");
 				}
+				System.out.println("\n");
+				Menu();
 			break;
 			case "2":
 				System.out.println("\n->Excluir jogador: \n");
@@ -63,6 +69,9 @@ public class Main2 {
 				}else {
 					System.out.println("Erro!");
 				}
+				
+				System.out.println("\n");
+				Menu();
 				break;
 			case "3":
 				System.out.println("\n->Alterar jogador: \n");
@@ -70,7 +79,7 @@ public class Main2 {
 				System.out.println("Digite o id do jogador: ");
 				id = ler.nextInt();
 				System.out.println("Digite o nome do jogador: ");
-				nome = ler.nextLine();
+				nome = ler.next().trim();
 				System.out.println("Digite o idade: ");
 				idade = ler.nextInt();
 				System.out.println("Digite a posicao: ");
@@ -85,6 +94,9 @@ public class Main2 {
 				}else {
 					System.out.println("Erro!");
 				}
+				
+				System.out.println("\n");
+				Menu();
 				break;
 			case "4":
 				System.out.println("\n->Buscar por id: \n");
@@ -94,7 +106,10 @@ public class Main2 {
 				
 				Jogador jog4 = con_jog.obterPorId(id);
 				
-				System.out.println("\nResultado: " + jog4);
+				System.out.println("\nResultado: " + jog4+"\n");
+				
+				System.out.println("\n");
+				Menu();
 				break;		
 			case "5":
 				System.out.println("\n->Mostrar todos: \n");
@@ -102,10 +117,17 @@ public class Main2 {
 				for(Jogador jog5 : con_jog.obterTodos()){
 					System.out.println(jog5);
 				}
+				
+				System.out.println("\n");
+				Menu();
 				break;		
 			case "0":
 				System.out.println("Parando programa"); 
 				op = "sair";
+				break;
+			default:
+				System.out.println("Comando n√£o encontrado");
+				Menu();
 				break;
 			}
 		}
